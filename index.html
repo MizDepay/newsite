@@ -183,67 +183,11 @@
 <head>
   <meta charset="UTF-8">
   <title>Email Form Top Left</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-    }
-
-    .email-top-left {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      background-color: #f9f9f9;
-      padding: 15px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.1);
-    }
-
-    .email-top-left label {
-      font-weight: bold;
-      color: black; 
-      background-color: transparent; 
-      padding: 0;
-    }
-
-    .email-top-left input[type="email"],
-    .email-top-left input[type="password"]{
-      width: 200px;
-      padding: 8px;
-      margin-top: 5px;
-      margin-bottom: 10px;
-      border: 1px solid #aaa;
-      border-radius: 5px;
-      background-color: white; 
-      color: black;
-    }
-
-    .email-top-left input[type="submit"] {
-      padding: 8px 16px;
-      background-color: #e74c3c;
-      color: white; 
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .email-top-left input[type="submit"]:hover {
-      background-color: #c82333;
-    }
-  </style>
+ 
 </head>
 <body>
 
-  <form class="email-top-left" action="your-server-endpoint" method="POST">
-    <label for="email">Email:</label><br>
-    <input type="email" id="email" name="email" placeholder="you@example.com" required><br>
 
-    <label for="password">Password:</label><br>
-    <input type="password" id="password" name="password" placeholder="Enter your password" required><br>
-
-    <button type="submit" class="button fit" style="background-color:#e74c3c; color:white;">Sign In</button>
-  </form>
  <script>
   function toggleForm() {
     const form = document.getElementById("emailFormToggle");
