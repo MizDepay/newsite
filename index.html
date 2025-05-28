@@ -106,73 +106,135 @@
 </html>
 
 								
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Email Form Top Left</title>
+  <title>E-Licensing - Toggle Email Login</title>
   <style>
     body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+
+    #header {
+      background: #222;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    #header h1 {
+      margin: 0;
+    }
+
+    #nav ul {
+      list-style: none;
       margin: 0;
       padding: 0;
-      font-family: Arial, sans-serif;
+      display: flex;
+      gap: 15px;
     }
 
-    .email-top-left {
+    #nav a {
+      color: white;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    /* Hide by default */
+    #emailFormToggle {
+      display: none;
       position: absolute;
-      top: 20px;
-      left: 20px;
+      top: 60px;
+      right: 20px;
       background-color: #f9f9f9;
-      padding: 15px;
+      padding: 20px;
       border: 1px solid #ccc;
       border-radius: 8px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      box-shadow: 0 0 10px rgba(0,0,0,0.15);
+      width: 280px;
+      z-index: 999;
     }
 
-    .email-top-left label {
+    #emailFormToggle label {
       font-weight: bold;
-      color: black; 
-      background-color: transparent; 
-      padding: 0;
-    }
-
-    .email-top-left input[type="email"],
-    .email-top-left input[type="password"]{
-      width: 200px;
-      padding: 8px;
-      margin-top: 5px;
-      margin-bottom: 10px;
-      border: 1px solid #aaa;
-      border-radius: 5px;
-      background-color: white; 
       color: black;
     }
 
-    .email-top-left input[type="submit"] {
-      padding: 8px 16px;
+    #emailFormToggle input[type="email"],
+    #emailFormToggle input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #aaa;
+      border-radius: 5px;
+      background-color: white;
+      color: black;
+    }
+
+    #emailFormToggle button {
+      width: 100%;
+      padding: 10px;
       background-color: #e74c3c;
-      color: white; 
+      color: white;
       border: none;
       border-radius: 5px;
       cursor: pointer;
     }
-    .email-top-left input[type="submit"]:hover {
+
+    #emailFormToggle button:hover {
       background-color: #c82333;
     }
   </style>
 </head>
 <body>
 
-  <form class="email-top-left" action="your-server-endpoint" method="POST">
-    <label for="email">Email:</label><br>
-    <input type="email" id="email" name="email" placeholder="you@example.com" required><br>
+  <!-- Header -->
+  <header id="header">
+    <h1><a href="#">E-Licensing</a></h1>
+    <nav id="nav">
+      <ul>
+        <li><a onclick="toggleForm()">Log In</a></li>
+        <li><a href="#">Menu</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <label for="password">Password:</label><br>
-    <input type="password" id="password" name="password" placeholder="Enter your password" required><br>
+  <!-- Hidden Email & Password Form -->
+  <div id="emailFormToggle">
+    <form action="your-server-endpoint" method="POST">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required>
 
-    <button type="submit" class="button fit" style="background-color:#e74c3c; color:white;">Sign In</button>
-  </form>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+      <button type="submit">Sign In</button>
+    </form>
+  </div>
+
+  <script>
+    function toggleForm() {
+      const form = document.getElementById("emailFormToggle");
+      form.style.display = (form.style.display === "block") ? "none" : "block";
+    }
+
+    // Optional: Click outside to hide
+    document.addEventListener("click", function(event) {
+      const form = document.getElementById("emailFormToggle");
+      const toggle = event.target.closest("a");
+      if (!event.target.closest("#emailFormToggle") && !toggle?.onclick?.toString().includes('toggleForm')) {
+        form.style.display = "none";
+      }
+    });
+  </script>
 
 </body>
 </html>
+
 
 								<li><a href="#" class="button primary">Start Here</a></li>
 								
