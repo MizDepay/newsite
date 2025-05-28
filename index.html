@@ -105,165 +105,75 @@
 </body>
 </html>
 
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>E-Licensing - Toggle Email Form</title>
+  <title>Email Form Top Left</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-    }
-
-    /* Header */
-    #header {
-      background: #222;
-      color: white;
-      padding: 10px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: relative;
-      z-index: 1000;
-    }
-
-    #header h1 {
-      margin: 0;
-      font-size: 20px;
-    }
-
-    #nav ul {
-      list-style: none;
       margin: 0;
       padding: 0;
-      display: flex;
-      gap: 20px;
-      align-items: center;
+      font-family: Arial, sans-serif;
     }
 
-    #nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .start-button {
-      background-color: #e74c3c;
-      padding: 8px 14px;
-      border-radius: 4px;
-      color: white;
-      text-transform: uppercase;
-      font-size: 14px;
-    }
-
-    .start-button:hover {
-      background-color: #c0392b;
-    }
-
-    /* Dropdown Form */
-    .dropdown-container {
-      position: relative;
-      display: inline-block;
-    }
-
-    #emailFormToggle {
-      display: none;
+    .email-top-left {
       position: absolute;
-      right: 0;
-      top: 100%;
+      top: 20px;
+      left: 20px;
       background-color: #f9f9f9;
-      padding: 20px;
+      padding: 15px;
       border: 1px solid #ccc;
       border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.15);
-      width: 300px;
-      z-index: 9999;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
     }
 
-    #emailFormToggle label {
+    .email-top-left label {
       font-weight: bold;
-      color: black;
+      color: black; 
+      background-color: transparent; 
+      padding: 0;
     }
 
-    #emailFormToggle input[type="email"],
-    #emailFormToggle input[type="password"] {
-      width: 100%;
-      padding: 10px;
-      margin: 8px 0;
+    .email-top-left input[type="email"],
+    .email-top-left input[type="password"]{
+      width: 200px;
+      padding: 8px;
+      margin-top: 5px;
+      margin-bottom: 10px;
       border: 1px solid #aaa;
       border-radius: 5px;
-      background-color: white;
+      background-color: white; 
       color: black;
     }
 
-    #emailFormToggle button {
-      width: 100%;
-      padding: 10px;
+    .email-top-left input[type="submit"] {
+      padding: 8px 16px;
       background-color: #e74c3c;
-      color: white;
+      color: white; 
       border: none;
       border-radius: 5px;
       cursor: pointer;
     }
-
-    #emailFormToggle button:hover {
+    .email-top-left input[type="submit"]:hover {
       background-color: #c82333;
     }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header id="header">
-    <h1><a href="#" style="color:white; text-decoration:none;">E-LICENSING</a></h1>
-    <nav id="nav">
-      <ul>
-        <li><a href="#">Menu</a></li>
-        <li class="dropdown-container">
-          <a onclick="toggleForm()">Log In</a>
-          <div id="emailFormToggle">
-            <form action="your-server-endpoint" method="POST">
-              <label for="email">Email:</label>
-              <input type="email" id="email" name="email" placeholder="you@example.com" required>
+  <form class="email-top-left" action="your-server-endpoint" method="POST">
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" placeholder="you@example.com" required><br>
 
-              <label for="password">Password:</label>
-              <input type="password" id="password" name="password" placeholder="Enter your password" required>
+    <label for="password">Password:</label><br>
+    <input type="password" id="password" name="password" placeholder="Enter your password" required><br>
 
-              <button type="submit">Sign In</button>
-            </form>
-          </div>
-        </li>
-        <li><a class="start-button" href="#">Start Here</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <!-- Main content -->
-  <main style="padding: 20px;">
-    <p>Welcome to the E-Licensing system!</p>
-  </main>
-
-  <!-- Toggle script -->
-  <script>
-    function toggleForm() {
-      const form = document.getElementById("emailFormToggle");
-      form.style.display = (form.style.display === "block") ? "none" : "block";
-    }
-
-    // Close form if clicked outside
-    document.addEventListener("click", function(event) {
-      const form = document.getElementById("emailFormToggle");
-      const toggle = event.target.closest("a");
-      if (!event.target.closest("#emailFormToggle") && !(toggle && toggle.textContent.includes("Log In"))) {
-        form.style.display = "none";
-      }
-    });
-  </script>
+    <button type="submit" class="button fit" style="background-color:#e74c3c; color:white;">Sign In</button>
+  </form>
 
 </body>
-</html>								
+</html>						
 
 
 
