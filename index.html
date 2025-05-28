@@ -51,18 +51,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Kuala Lumpur Clock</title>
+  <title>Kuala Lumpur Date & Time</title>
   <style>
     #kl-clock {
       position: absolute;
       top: 10px;
-      center: 10px;
+      left: 10px;
       font-size: 18px;
       font-weight: bold;
-      color: #dc3545; /* red-like color */
+      color: #dc3545; /* red text */
       font-family: 'Courier New', monospace;
       background-color: #f9f9f9;
-      padding: 8px 12px;
+      padding: 10px 15px;
       border: 1px solid #ccc;
       border-radius: 6px;
       box-shadow: 0 0 5px rgba(0,0,0,0.1);
@@ -75,15 +75,28 @@
 
   <script>
     function updateKLClock() {
-      const now = new Date().toLocaleString("en-MY", {
+      const now = new Date();
+
+      const optionsDate = {
+        timeZone: "Asia/Kuala_Lumpur",
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      };
+
+      const optionsTime = {
         timeZone: "Asia/Kuala_Lumpur",
         hour: '2-digit',
         minute: '2-digit',
         second: '2-digit',
         hour12: false
-      });
+      };
 
-      document.getElementById("kl-clock").innerHTML = "Kuala Lumpur Time: " + now;
+      const date = now.toLocaleDateString("en-MY", optionsDate);
+      const time = now.toLocaleTimeString("en-MY", optionsTime);
+
+      document.getElementById("kl-clock").innerHTML = `📅 ${date}<br>⏰ Kuala Lumpur Time: ${time}`;
     }
 
     setInterval(updateKLClock, 1000);
