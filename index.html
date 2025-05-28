@@ -105,7 +105,6 @@
 </body>
 </html>
 
-								
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -131,6 +130,7 @@
 
     #header h1 {
       margin: 0;
+      font-size: 20px;
     }
 
     #nav ul {
@@ -138,16 +138,31 @@
       margin: 0;
       padding: 0;
       display: flex;
-      gap: 15px;
+      gap: 20px;
+      align-items: center;
     }
 
     #nav a {
       color: white;
       text-decoration: none;
+      font-weight: bold;
       cursor: pointer;
     }
 
-    /* Email Form as dropdown */
+    .start-button {
+      background-color: #e74c3c;
+      padding: 8px 14px;
+      border-radius: 4px;
+      color: white;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+
+    .start-button:hover {
+      background-color: #c0392b;
+    }
+
+    /* Dropdown Form */
     .dropdown-container {
       position: relative;
       display: inline-block;
@@ -202,7 +217,7 @@
 
   <!-- Header -->
   <header id="header">
-    <h1><a href="#">E-Licensing</a></h1>
+    <h1><a href="#" style="color:white; text-decoration:none;">E-LICENSING</a></h1>
     <nav id="nav">
       <ul>
         <li><a href="#">Menu</a></li>
@@ -220,11 +235,12 @@
             </form>
           </div>
         </li>
+        <li><a class="start-button" href="#">Start Here</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Optional main content -->
+  <!-- Main content -->
   <main style="padding: 20px;">
     <p>Welcome to the E-Licensing system!</p>
   </main>
@@ -247,7 +263,8 @@
   </script>
 
 </body>
-</html>
+</html>								
+
 
 
 
