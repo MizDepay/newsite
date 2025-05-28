@@ -51,6 +51,52 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <title>Kuala Lumpur Clock</title>
+  <style>
+    #kl-clock {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #dc3545; /* red-like color */
+      font-family: 'Courier New', monospace;
+      background-color: #f9f9f9;
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <div id="kl-clock">Loading...</div>
+
+  <script>
+    function updateKLClock() {
+      const now = new Date().toLocaleString("en-MY", {
+        timeZone: "Asia/Kuala_Lumpur",
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false
+      });
+
+      document.getElementById("kl-clock").innerHTML = "Kuala Lumpur Time: " + now;
+    }
+
+    setInterval(updateKLClock, 1000);
+    updateKLClock();
+  </script>
+
+</body>
+</html>
+
+								<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
   <title>Email Form Top Left</title>
   <style>
     body {
