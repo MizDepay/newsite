@@ -47,12 +47,66 @@
 							It's Legally Good<br />
 							and Easier <a href="http://html5up.net">for All</a>.</p>
 							<ul class="actions special">
-								<li><a><form action="your-server-endpoint" method="POST"></a></li>
-  <label for="email">Email Address:</label><br>
-  <input type="email" id="email" name="email" placeholder="email.com" required><br><br>
-   <li><input<a href="#" class="button fit primary">Sign In</a></li>
- 
-</form>
+								<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Email Form Top Left</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .email-top-left {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background-color: #f9f9f9;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+
+    .email-top-left label {
+      font-weight: bold;
+    }
+
+    .email-top-left input[type="email"] {
+      width: 200px;
+      padding: 8px;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      border: 1px solid #aaa;
+      border-radius: 5px;
+    }
+
+    .email-top-left input[type="submit"] {
+      padding: 8px 16px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .email-top-left input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <form class="email-top-left" action="your-server-endpoint" method="POST">
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" placeholder="you@example.com" required><br>
+    <input type="submit" value="Submit">
+  </form>
+
+</body>
+</html>
 								<li><a href="#" class="button primary">Sign Up</a></li>
 								
 							</ul>
