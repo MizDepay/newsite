@@ -147,23 +147,24 @@
       cursor: pointer;
     }
 
-    /* Wrapper for content below header */
-    .content-wrapper {
+    /* Email Form as dropdown */
+    .dropdown-container {
       position: relative;
-      padding: 20px;
+      display: inline-block;
     }
 
-    /* Toggle Email Form */
     #emailFormToggle {
       display: none;
-      position: relative;
-      margin-top: 20px;
+      position: absolute;
+      right: 0;
+      top: 100%;
       background-color: #f9f9f9;
       padding: 20px;
       border: 1px solid #ccc;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0,0,0,0.15);
       width: 300px;
+      z-index: 9999;
     }
 
     #emailFormToggle label {
@@ -204,35 +205,38 @@
     <h1><a href="#">E-Licensing</a></h1>
     <nav id="nav">
       <ul>
-        <li><a onclick="toggleForm()">Log In</a></li>
         <li><a href="#">Menu</a></li>
+        <li class="dropdown-container">
+          <a onclick="toggleForm()">Log In</a>
+          <div id="emailFormToggle">
+            <form action="your-server-endpoint" method="POST">
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" required>
+
+              <label for="password">Password:</label>
+              <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+              <button type="submit">Sign In</button>
+            </form>
+          </div>
+        </li>
       </ul>
     </nav>
   </header>
 
-  <!-- Page Content -->
-  <div class="content-wrapper">
-    <!-- Hidden Email Form -->
-    <div id="emailFormToggle">
-      <form action="your-server-endpoint" method="POST">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+  <!-- Optional main content -->
+  <main style="padding: 20px;">
+    <p>Welcome to the E-Licensing system!</p>
+  </main>
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" placeholder="Enter your password" required>
-
-        <button type="submit">Sign In</button>
-      </form>
-    </div>
-  </div>
-
-  <!-- Script to toggle form -->
+  <!-- Toggle script -->
   <script>
     function toggleForm() {
       const form = document.getElementById("emailFormToggle");
       form.style.display = (form.style.display === "block") ? "none" : "block";
     }
 
+    // Close form if clicked outside
     document.addEventListener("click", function(event) {
       const form = document.getElementById("emailFormToggle");
       const toggle = event.target.closest("a");
@@ -244,6 +248,7 @@
 
 </body>
 </html>
+
 
 
 
