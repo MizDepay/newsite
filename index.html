@@ -105,8 +105,7 @@
 </body>
 </html>
 
-								<!DOCTYPE html>
-<!DOCTYPE html>
+								!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -131,53 +130,32 @@
 
     .email-top-left label {
       font-weight: bold;
-      color: black;
-      background-color: transparent;
+      color: black; 
+      background-color: transparent; 
       padding: 0;
     }
 
-    .input-wrapper {
-      position: relative;
-      margin-bottom: 15px;
-    }
-
-    .input-wrapper input[type="email"],
-    .input-wrapper input[type="text"],
-    .input-wrapper input[type="password"] {
+    .email-top-left input[type="email"],
+    .email-top-left input[type="password"]{
       width: 200px;
       padding: 8px;
-      padding-right: 60px;
+      margin-top: 5px;
+      margin-bottom: 10px;
       border: 1px solid #aaa;
       border-radius: 5px;
-      background-color: white;
+      background-color: white; 
       color: black;
     }
 
-    .toggle-btn {
-      position: absolute;
-      right: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: #e74c3c;
-      color: white;
-      border: none;
-      padding: 6px 10px;
-      cursor: pointer;
-      font-size: 12px;
-      border-radius: 0 5px 5px 0;
-    }
-
-    .email-top-left .button.fit {
+    .email-top-left input[type="submit"] {
       padding: 8px 16px;
       background-color: #e74c3c;
-      color: white;
+      color: white; 
       border: none;
       border-radius: 5px;
       cursor: pointer;
-      display: inline-block;
     }
-
-    .email-top-left .button.fit:hover {
+    .email-top-left input[type="submit"]:hover {
       background-color: #c82333;
     }
   </style>
@@ -185,35 +163,14 @@
 <body>
 
   <form class="email-top-left" action="your-server-endpoint" method="POST">
-    
-    <div class="input-wrapper">
-      <label for="email">Email:</label><br>
-      <input type="email" id="email" name="email" placeholder="you@example.com" required>
-      <button type="button" class="toggle-btn" onclick="toggleEmail()">Hide</button>
-    </div>
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" placeholder="you@example.com" required><br>
 
-    <div class="input-wrapper">
-      <label for="password">Password:</label><br>
-      <input type="password" id="password" name="password" placeholder="Enter your password" required>
-    </div>
+    <label for="password">Password:</label><br>
+    <input type="password" id="password" name="password" placeholder="Enter your password" required><br>
 
-    <button type="submit" class="button fit">Sign In</button>
+    <button type="submit" class="button fit" style="background-color:#e74c3c; color:white;">Sign In</button>
   </form>
-
-  <script>
-    function toggleEmail() {
-      const emailInput = document.getElementById("email");
-      const toggleBtn = document.querySelector(".toggle-btn");
-
-      if (emailInput.type === "email") {
-        emailInput.type = "text";
-        toggleBtn.textContent = "Show";
-      } else {
-        emailInput.type = "email";
-        toggleBtn.textContent = "Hide";
-      }
-    }
-  </script>
 
 </body>
 </html>
