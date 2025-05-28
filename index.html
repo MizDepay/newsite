@@ -110,13 +110,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>E-Licensing - Toggle Email Login</title>
+  <title>E-Licensing - Toggle Email Form</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
     }
 
+    /* Header */
     #header {
       background: #222;
       color: white;
@@ -145,23 +146,24 @@
       text-decoration: none;
       cursor: pointer;
     }
+
+    /* Wrapper for content below header */
     .content-wrapper {
       position: relative;
       padding: 20px;
     }
-  
+
+    /* Toggle Email Form */
     #emailFormToggle {
       display: none;
       position: relative;
-      top: 60px;
-      right: 20px;
+      margin-top: 20px;
       background-color: #f9f9f9;
       padding: 20px;
       border: 1px solid #ccc;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0,0,0,0.15);
-      width: 280px;
-      z-index: 999;
+      width: 300px;
     }
 
     #emailFormToggle label {
@@ -208,30 +210,33 @@
     </nav>
   </header>
 
+  <!-- Page Content -->
   <div class="content-wrapper">
-  <div id="emailFormToggle">
-    <form action="your-server-endpoint" method="POST">
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" placeholder="you@example.com" required>
+    <!-- Hidden Email Form -->
+    <div id="emailFormToggle">
+      <form action="your-server-endpoint" method="POST">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required>
 
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password" placeholder="Enter your password" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
 
-      <button type="submit">Sign In</button>
-    </form>
+        <button type="submit">Sign In</button>
+      </form>
+    </div>
   </div>
 
+  <!-- Script to toggle form -->
   <script>
     function toggleForm() {
       const form = document.getElementById("emailFormToggle");
       form.style.display = (form.style.display === "block") ? "none" : "block";
     }
 
-    // Optional: Click outside to hide
     document.addEventListener("click", function(event) {
       const form = document.getElementById("emailFormToggle");
       const toggle = event.target.closest("a");
-      if (!event.target.closest("#emailFormToggle") && !toggle?.onclick?.toString().includes('toggleForm')) {
+      if (!event.target.closest("#emailFormToggle") && !(toggle && toggle.textContent.includes("Log In"))) {
         form.style.display = "none";
       }
     });
@@ -239,6 +244,7 @@
 
 </body>
 </html>
+
 
 
 								<li><a href="#" class="button primary">Start Here</a></li>
