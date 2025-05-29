@@ -4,174 +4,167 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-<html>
-	<head>
-		<title>Spectral by HTML5 UP</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<style>
-#nav a:focus,
-.menuToggle:focus {
-  outline: none;
-}
-			
-#nav a,
-.menuToggle {
-  text-decoration: none !important;
-  color: white !important;
-}
-
-/* Optional: improve alignment */
-.menuToggle span {
-  display: inline-block;
-  vertical-align: middle;
-  line-height: 1.2;
-}
-.menuToggle {
-  display: inline-block;
-  padding: 10px 15px;
-  text-decoration: none;   
-  color: white;            
-  vertical-align: middle;  
-  font-weight: none;
-}
-
-.menuToggle span {
-  display: inline-block;
-  vertical-align: middle;
-  line-height: 1;
-}
-  #emailFormToggle {
-    display: none;
-    background: #ffffff;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    width: 250px;
-    margin-top: 10px;
-  }
-
-  #emailFormToggle label {
-    font-weight: bold;
-    color: #333;
-    display: block;
-    margin-top: 10px;
-  }
-
-  #emailFormToggle input[type="email"],
-  #emailFormToggle input[type="password"] {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-
-  #emailFormToggle button {
-    position: absolute;
-    top: 10px
-    left:20px
-    width: 100%;
-    padding: 10px;
-    background-color: #e74c3c;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-align: center;
-    line-height: 1.5;
-	  
-  }
-
-  #emailFormToggle button:hover {
-    background-color: #c0392b;
-  }
-</style>
-	</head>
-	<body class="landing is-preload">
-
-		<!-- Page Wrapper -->
-			<div id="page-wrapper">
-
-				<!-- Header -->
-					<header id="header" class="alt">
-						<h1><a href="index.html">E-Licensing</a></h1>
-						<nav id="nav">
-							<ul>
-								<li class="special">
-									<li class="dropdown-container">
-							</ul>
-  <a href="#" onclick="toggleForm()">Log In</a>
-  <div id="emailFormToggle" style="display: none;">
-    <form action="your-server-endpoint" method="POST" style="margin-top: 10px;">
-      <label for="email">Email:</label><br>
-      <input type="email" id="email" name="email" placeholder="you@example.com" required style="width: 100%;"><br>
-
-      <label for="password">Password:</label><br>
-      <input type="password" id="password" name="password" placeholder="Enter your password" required style="width: 100%;"><br>
-
-      <button type="submit" style="background-color:#e74c3c; color:white; width: 100%; margin-top: 5px;">Sign In</button>
-    </form>
-  </div>
-</li>
-	                                                        <ul>       
-								<li class="special">
-									<li class="dropdown-container">
-									<a href="#menu" class="menuToggle"><span>Menu</span></a>
-									<div id="menu">
-										
-										<ul>
-											<li><a href="index.html">Home</a></li>
-											<li><a href="generic.html">Application</a></li>
-											<li><a href="elements.html">Documents</a></li>
-											
-											
-										</ul>
-									</div>
-								</li>
-							</ul>
-						</nav>
-					</header>
-
-				<!-- Banner -->
-					<section id="banner">
-						<div class="inner">
-							<p><center><img src="images/mdt.png" width="80" height="75"</center></p>
-							<h2>E-Licensing</h2>
-							<p><b>Majlis Daerah Tangkak</b><br />
-							It's Legally Good<br />
-							and Easier <a href="http://html5up.net">for All</a>.</p>
-							<ul class="actions special">
-								
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Kuala Lumpur Date & Time</title>
+  <title>E-Licensing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
   <style>
+    /* Position Log In button top-left */
+    #login-button {
+      position: absolute;
+      top: 15px;
+      left: 20px;
+      color: white;
+      background-color: #e74c3c;
+      padding: 8px 12px;
+      border-radius: 5px;
+      text-decoration: none;
+      z-index: 1000;
+      font-weight: bold;
+    }
+
+    /* Style for hidden email form */
+    #emailFormToggle {
+      display: none;
+      position: absolute;
+      top: 50px;
+      left: 20px;
+      background: #ffffff;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      width: 250px;
+      z-index: 1000;
+    }
+
+    #emailFormToggle label {
+      font-weight: bold;
+      color: #333;
+      display: block;
+      margin-top: 10px;
+    }
+
+    #emailFormToggle input[type="email"],
+    #emailFormToggle input[type="password"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    #emailFormToggle button {
+      width: 100%;
+      padding: 10px;
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #emailFormToggle button:hover {
+      background-color: #c0392b;
+    }
+
+    /* KL clock top-right */
     #kl-clock {
       position: absolute;
-      top: 10px;
-      center: 10px;
-      font-size: 18px;
+      top: 15px;
+      right: 20px;
+      font-size: 16px;
       font-weight: bold;
-      color: #ffffff; 
+      color: #ffffff;
       font-family: 'Courier New', monospace;
-      background-color: transparent;
-      padding: 10px 15px;
-     
     }
   </style>
 </head>
-<body>
 
+<body class="landing is-preload">
+
+  <!-- Log In Button -->
+  <a href="#" id="login-button" onclick="toggleForm()">Log In</a>
+
+  <!-- Log In Form -->
+  <div id="emailFormToggle">
+    <form action="your-server-endpoint" method="POST">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+      <button type="submit">Sign In</button>
+    </form>
+  </div>
+
+  <!-- KL Clock -->
   <div id="kl-clock">Loading...</div>
 
+  <!-- Page Wrapper -->
+  <div id="page-wrapper">
+
+    <!-- Header -->
+    <header id="header" class="alt">
+      <h1><a href="index.html">E-Licensing</a></h1>
+      <nav id="nav">
+        <ul>
+          <li class="special">
+            <a href="#menu" class="menuToggle"><span>Menu</span></a>
+            <div id="menu">
+              <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="generic.html">Application</a></li>
+                <li><a href="elements.html">Documents</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Banner -->
+    <section id="banner">
+      <div class="inner">
+        <p><center><img src="images/mdt.png" width="80" height="75"></center></p>
+        <h2>E-Licensing</h2>
+        <p><b>Majlis Daerah Tangkak</b><br />
+        It's Legally Good<br />
+        and Easier <a href="http://html5up.net">for All</a>.</p>
+        <ul class="actions special">
+          <li><a href="#" class="button primary">Start Here</a></li>
+        </ul>
+      </div>
+      <a href="#one" class="more scrolly">Learn More</a>
+    </section>
+
+  </div>
+
+  <!-- Scripts -->
   <script>
+    // Toggle form visibility
+    function toggleForm() {
+      const form = document.getElementById("emailFormToggle");
+      form.style.display = form.style.display === "block" ? "none" : "block";
+    }
+
+    // Auto-hide form if clicked outside
+    document.addEventListener("click", function(event) {
+      const form = document.getElementById("emailFormToggle");
+      const link = event.target.closest("a");
+      if (!event.target.closest("#emailFormToggle") && !(link && link.textContent.includes("Log In"))) {
+        form.style.display = "none";
+      }
+    });
+
+    // Update KL Clock
     function updateKLClock() {
       const now = new Date();
-
       const optionsDate = {
         timeZone: "Asia/Kuala_Lumpur",
         weekday: 'long',
@@ -179,7 +172,6 @@
         month: 'long',
         day: 'numeric'
       };
-
       const optionsTime = {
         timeZone: "Asia/Kuala_Lumpur",
         hour: '2-digit',
@@ -187,11 +179,9 @@
         second: '2-digit',
         hour12: false
       };
-
       const date = now.toLocaleDateString("en-MY", optionsDate);
       const time = now.toLocaleTimeString("en-MY", optionsTime);
-
-      document.getElementById("kl-clock").innerHTML = ` ${date}<br> Time: ${time}`;
+      document.getElementById("kl-clock").innerHTML = `${date}<br>Time: ${time}`;
     }
 
     setInterval(updateKLClock, 1000);
@@ -200,35 +190,7 @@
 
 </body>
 </html>
-
-
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Email Form Top Left</title>
- 
-</head>
-<body>
-
-
- <script>
-  function toggleForm() {
-    const form = document.getElementById("emailFormToggle");
-    form.style.display = form.style.display === "block" ? "none" : "block";
-  }
-
-  // Optional: auto-close form when clicking outside
-  document.addEventListener("click", function(event) {
-    const form = document.getElementById("emailFormToggle");
-    const link = event.target.closest("a");
-    if (!event.target.closest("#emailFormToggle") && !(link && link.textContent.includes("Log In"))) {
-      form.style.display = "none";
-    }
-  });
-</script>
-
-</body>
-</html>						
+				
 
 
 
