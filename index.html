@@ -12,6 +12,10 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
+#nav a:focus,
+.menuToggle:focus {
+  outline: none;
+}
 			
 #nav a,
 .menuToggle {
@@ -95,7 +99,7 @@
 							<ul>
 								<li class="special">
 									<li class="dropdown-container">
-							
+							</ul>
   <a href="#" onclick="toggleForm()">Log In</a>
   <div id="emailFormToggle" style="display: none;">
     <form action="your-server-endpoint" method="POST" style="margin-top: 10px;">
