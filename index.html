@@ -28,18 +28,28 @@
     }
 
     /* Login Button - Top Left */
-    #login-button {
-      position: absolute;
-      top: 15px;
-      left: 20px;
-      color: white;
-      background-color: #e74c3c;
-      padding: 10px 20px;
-      border-radius: 5px;
-      border: none;
-      font-weight: bold;
-      cursor: pointer;
-      z-index: 1000;
+   /* Fix for LOG IN and SIGN IN buttons */
+#loginButton {
+  background-color: #e74c3c;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+
+  /* Center text vertically and horizontally */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Optional: Make sure width/height doesn't affect alignment */
+  text-align: center;
+  line-height: normal;
+  height: 40px;
+}
+
     }
 
     /* Login Form */
