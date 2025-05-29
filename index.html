@@ -14,6 +14,83 @@
   <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 
   <style>
+	  /* 🔧 Step 3: Clock Centered at Top */
+#kl-clock {
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  font-family: 'Courier New', monospace;
+  background: transparent;
+  z-index: 1000;
+}
+
+/* 🔧 Step 4: Log In button full clickable and styled */
+#login-button {
+  position: absolute;
+  top: 15px;
+  left: 20px;
+  color: white;
+  background-color: #e74c3c;
+  padding: 8px 15px;
+  border-radius: 5px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+/* 🔧 Step 4: Login form */
+#emailFormToggle {
+  display: none;
+  position: absolute;
+  top: 60px;
+  left: 20px;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  width: 250px;
+  z-index: 1000;
+}
+
+#emailFormToggle label {
+  font-weight: bold;
+  color: #333;
+  display: block;
+  margin-top: 10px;
+}
+
+#emailFormToggle input[type="email"],
+#emailFormToggle input[type="password"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* 🔧 Step 4: Center the "Sign In" button */
+#emailFormToggle button {
+  display: block;
+  margin: 10px auto 0 auto;
+  padding: 10px;
+  width: 80%;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#emailFormToggle button:hover {
+  background-color: #c0392b;
+}
+
     /* Position Log In button top-left */
     #login-button {
       position: absolute;
@@ -86,7 +163,7 @@
 </head>
 
 <body class="landing is-preload">
-
+  <div id="kl-clock">Loading...</div>
   <!-- Log In Button -->
  <button id="login-button" onclick="toggleForm()">Log In</button>
 
@@ -107,8 +184,7 @@
 
 
   <!-- KL Clock -->
-  <div id="kl-clock">Loading...</div>
-
+ 
   <!-- Page Wrapper -->
   <div id="page-wrapper">
 
@@ -190,6 +266,46 @@
     setInterval(updateKLClock, 1000);
     updateKLClock();
   </script>
+<script>
+  function toggleForm() {
+    const form = document.getElementById("emailFormToggle");
+    form.style.display = form.style.display === "block" ? "none" : "block";
+  }
+
+  // Close login form when clicking outside
+  document.addEventListener("click", function(event) {
+    const form = document.getElementById("emailFormToggle");
+    const button = document.getElementById("login-button");
+    if (!form.contains(event.target) && event.target !== button) {
+      form.style.display = "none";
+    }
+  });
+
+  // KL Clock
+  function updateKLClock() {
+    const now = new Date();
+    const optionsDate = {
+      timeZone: "Asia/Kuala_Lumpur",
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    };
+    const optionsTime = {
+      timeZone: "Asia/Kuala_Lumpur",
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: false
+    };
+    const date = now.toLocaleDateString("en-MY", optionsDate);
+    const time = now.toLocaleTimeString("en-MY", optionsTime);
+    document.getElementById("kl-clock").innerHTML = `${date}<br>Time: ${time}`;
+  }
+
+  setInterval(updateKLClock, 1000);
+  updateKLClock();
+</script>
 
 </body>
 </html>
