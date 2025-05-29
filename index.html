@@ -88,20 +88,23 @@
 <body class="landing is-preload">
 
   <!-- Log In Button -->
-  <a href="#" id="login-button" onclick="toggleForm()">Log In</a>
+ <button id="login-button" onclick="toggleForm()">Log In</button>
+
 
   <!-- Log In Form -->
-  <div id="emailFormToggle">
-    <form action="your-server-endpoint" method="POST">
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" placeholder="you@example.com" required>
+<div id="emailFormToggle">
+  <form action="your-server-endpoint" method="POST">
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" placeholder="you@example.com" required>
 
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password" placeholder="Enter your password" required>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" placeholder="Enter your password" required>
 
-      <button type="submit">Sign In</button>
-    </form>
-  </div>
+    <!-- Step 2: Centered Sign In button -->
+    <button type="submit">Sign In</button>
+  </form>
+</div>
+
 
   <!-- KL Clock -->
   <div id="kl-clock">Loading...</div>
